@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-bVat3WDpHO+zOUDCzbA4Uvq1Hv4p2W8iER5LzUvFzIp/CM99WL5TM1RZUxvZ8Pm2C1pu7mViFN6aiY61ACUHlQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>MecaXplora</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <span class="lavanderia">MecaXplora</span>
+            <label for="menu" class="menu-icono">
+                <img src="images/menu.png" alt="Icono de menú" width="30px" height="20px">
+            </label>
+            <div class="nav-links">
+                <a>PROYECTOS</a>
+                <a id="servicios">MECATRONICA</a>
+                <a id="servicios-corporativos">CIENCIAS</a>
+                <a>___________</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="image-container">
+        <div>
+            <h4>Hola, Soy <span class="nombre">José Salcedo</span></h4>
+            <p>En este espacio, comparto mi emocionante viaje de
+                aprendizaje y exploración en el campo interdisciplinario de la Mecatrónica.</p>
+            <div class="socials-1">
+                <a href="#" target="_blank" class="social-1" id="twitter">
+                    <img src="images/s2.svg" alt="Twitter">
+                </a>
+                <a href="#" target="_blank" class="social-1" id="twitter">
+                    <img src="images/s3.svg" alt="Twitter">
+                </a>
+                <a href="#" target="_blank" class="social-1" id="twitter">
+                    <img src="images/s1.svg" alt="Twitter">
+                </a>
+            </div>
+        </div>
+
+        <div>
+            <img src="images/YO.png" alt="Image 2">
+        </div>
+    </section>
+
+    <section class="sobre-mi">
+        <div>
+            <img src="images/jose02.png">
+        </div>
+        <div>
+            <h4>Sobre Mi</h4>
+            <p>Soy <span class="nombre">José Salcedo</span>, un estudiante apasionado de ingeniería mecatrónica. Desde
+                temprana edad, mi fascinación por la intersección entre la mecánica, la electrónica y la informática me
+                ha impulsado a explorar y aprender sobre el funcionamiento de sistemas complejos.
+            </p>
+            <p>
+                Actualmente, me encuentro inmerso en el desafiante y emocionante mundo de la ingeniería mecatrónica,
+                donde combino mis habilidades técnicas con mi creatividad para diseñar y desarrollar soluciones
+                innovadoras. Mi objetivo es aplicar mis conocimientos para resolver problemas del mundo real y
+                contribuir al avance tecnológico en nuestra sociedad.</p>
+
+            <h5>📞+51 932 238 506</h5>
+        </div>
+    </section>
+    <section class="proyecto">
+        <div class="titulo">Proyectos</div>
+
+        <!-- Primer proyecto: Brazo Robótico -->
+        <div class="proyecto-individual">
+            <div class="titulo">Brazo Robótico</div>
+            <div class="imagen">
+                <img src="brazo_robotico.jpg" alt="Brazo Robótico">
+            </div>
+            <div class="descripcion">
+                <p>Descripción del proyecto de brazo robótico. Este proyecto consiste en diseñar, construir y programar
+                    un brazo robótico con capacidad de movimiento y manipulación de objetos.</p>
+                <p>El brazo estará compuesto por servomotores, sensores y una interfaz de control que permitirá al
+                    usuario controlar los movimientos del brazo y realizar tareas específicas.</p>
+            </div>
+        </div>
+
+        <!-- Segundo proyecto: Proyecto XYZ -->
+        <div class="proyecto-individual">
+            <div class="titulo">Proyecto XYZ</div>
+            <div class="imagen">
+                <img src="proyecto_xyz.jpg" alt="Proyecto XYZ">
+            </div>
+            <div class="descripcion">
+                <p>Descripción del Proyecto XYZ. Este proyecto implica el diseño e implementación de un sistema
+                    mecatrónico innovador para resolver un problema específico en la industria o la vida cotidiana.</p>
+                <p>El proyecto incluirá la integración de componentes electrónicos, software de control y posiblemente
+                    tecnologías de inteligencia artificial para lograr su funcionalidad deseada.</p>
+            </div>
+        </div>
+
+        <!-- Tercer proyecto: Robot Seguidor de Línea -->
+        <div class="proyecto-individual">
+            <div class="titulo">Robot Seguidor de Línea</div>
+            <div class="imagen">
+                <img src="robot_line_follower.jpg" alt="Robot Seguidor de Línea">
+            </div>
+            <div class="descripcion">
+                <p>Descripción del proyecto de robot seguidor de línea. Este proyecto consiste en diseñar y construir un
+                    robot capaz de seguir una línea trazada en el suelo utilizando sensores de infrarrojos o cualquier
+                    otro tipo de sensor adecuado.</p>
+                <p>El robot deberá ser capaz de detectar la línea y ajustar su trayectoria para seguir el recorrido de
+                    manera autónoma, utilizando algoritmos de control adecuados.</p>
+            </div>
+        </div>
+
+    </section>
+
+
+    <script>
+        // Primer script JavaScript para el menú de servicios
+        document.addEventListener('DOMContentLoaded', function () {
+            var serviciosLink = document.getElementById('servicios');
+            var opcionesContainer = crearOpcionesContainer();
+            var timeoutId; // Variable para almacenar el ID del temporizador
+
+            serviciosLink.addEventListener('mouseover', mostrarOpciones);
+            opcionesContainer.addEventListener('mouseover', function () {
+                clearTimeout(timeoutId); // Cancelar el temporizador si el mouse está sobre el contenedor
+            });
+
+            serviciosLink.addEventListener('mouseout', function () {
+                timeoutId = setTimeout(cerrarOpciones, 500); // Configurar un temporizador para cerrar el menú después de 500ms
+            });
+            opcionesContainer.addEventListener('mouseout', function () {
+                timeoutId = setTimeout(cerrarOpciones, 500); // Configurar un temporizador para cerrar el menú después de 500ms
+            });
+
+            document.querySelector('.menu-icono').addEventListener('click', function () {
+                document.querySelector('.nav-links').classList.toggle('show');
+            });
+
+            function mostrarOpciones() {
+                var rect = serviciosLink.getBoundingClientRect();
+                opcionesContainer.style.top = rect.bottom + 'px';
+                opcionesContainer.style.left = rect.left + 'px';
+                opcionesContainer.classList.add('visible');
+                document.addEventListener('click', cerrarOpciones);
+            }
+
+            function cerrarOpciones() {
+                opcionesContainer.classList.remove('visible');
+                document.removeEventListener('click', cerrarOpciones);
+            }
+
+            function crearOpcionesContainer() {
+                var container = document.getElementById('opciones-servicios');
+                if (!container) {
+                    container = document.createElement('section');
+                    container.id = 'opciones-servicios';
+                    container.innerHTML =
+                        '<div class="curso">' +
+                        '<a>Electrónicos</a>' +
+                        '</div>' +
+                        '<div class="curso">' +
+                        '<a>Física Aplicada</a>' +
+                        '</div>' +                        
+                        '<div class="curso">' +
+                        '<a>Sensores</a>' +
+                        '</div>';
+                    document.body.appendChild(container);
+                }
+
+                return container;
+            }
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var serviciosCorporativosLink = document.getElementById('servicios-corporativos');
+            var opcionesContainer = crearOpcionesContainer();
+            var timeoutId;
+
+            serviciosCorporativosLink.addEventListener('mouseover', mostrarOpciones);
+            opcionesContainer.addEventListener('mouseover', function () {
+                clearTimeout(timeoutId);
+            });
+
+            serviciosCorporativosLink.addEventListener('mouseout', function () {
+                timeoutId = setTimeout(cerrarOpciones, 500);
+            });
+            opcionesContainer.addEventListener('mouseout', function () {
+                timeoutId = setTimeout(cerrarOpciones, 500);
+            });
+
+            document.querySelector('.menu-icono').addEventListener('click', function () {
+                document.querySelector('.nav-links').classList.toggle('show');
+            });
+
+            function mostrarOpciones() {
+                var rect = serviciosCorporativosLink.getBoundingClientRect();
+                opcionesContainer.style.top = rect.bottom + 'px';
+                opcionesContainer.style.left = rect.left + 'px';
+                opcionesContainer.classList.add('visible');
+                document.addEventListener('click', cerrarOpciones);
+            }
+
+            function cerrarOpciones() {
+                opcionesContainer.classList.remove('visible');
+                document.removeEventListener('click', cerrarOpciones);
+            }
+            function crearOpcionesContainer() {
+                var container = document.getElementById('opciones-servicios-corporativos');
+                if (!container) {
+                    container = document.createElement('section');
+                    container.id = 'opciones-servicios-corporativos';
+                    container.innerHTML =
+                        '<div class="curso">' +
+                        '<a>Matematica Basica</a>' +
+                        '</div>' +
+                        '<div class="curso">' +
+                        '<a>Transformada Z</a>' +
+                        '</div>' +                        
+                        '<div class="curso">' +
+                        '<a>Transformada de Laplace</a>' +
+                        '</div>' +
+                        '<div class="curso">' +
+                        '<a>Transformada de Fourier</a>' +
+                        '</div>' +
+                        '<div class="curso">' +
+                        '<a>Señales y Sistemas</a>' +
+                        '</div>' +
+                        '<div class="curso">' +
+                        '<a>Resistencia de Materiales y Mecanica de Ingenieros</a>' +
+                        '</div>';
+                    document.body.appendChild(container);
+                }
+
+                return container;
+            }
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelector('.menu-icono').addEventListener('click', function () {
+                document.querySelector('.nav-links').classList.toggle('show');
+            });
+
+            function mostrarOpciones() {
+                var rect = serviciosCorporativosLink.getBoundingClientRect();
+                opcionesContainer.style.top = rect.bottom + 'px';
+                opcionesContainer.style.left = rect.left + 'px';
+                opcionesContainer.classList.add('visible');
+                document.addEventListener('click', cerrarOpciones);
+            }
+
+            function cerrarOpciones() {
+                opcionesContainer.classList.remove('visible');
+                document.removeEventListener('click', cerrarOpciones);
+            }
+        });
+    </script>
+
+</body>
+
+</html>
