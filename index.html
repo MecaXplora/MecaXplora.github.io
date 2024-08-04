@@ -19,19 +19,23 @@
                 <img src="images/menu.png" alt="Icono de menú" width="30px" height="20px">
             </label>
             <div class="nav-links">
+                <a>SOBRE MI</a>
                 <a>PROYECTOS</a>
-                <a id="servicios">MECATRONICA</a>
-                <a id="servicios-corporativos">CIENCIAS</a>
-                <a>___________</a>
+                <a>CIENCIAS</a>
             </div>
         </nav>
     </header>
 
     <section class="image-container">
         <div>
-            <h4>Hola, Soy <span class="nombre">José Salcedo</span></h4>
+            <h5>Hola, Soy <span class="nombre">José Salcedo</span></h5>
             <p>En este espacio, comparto mi emocionante viaje de
                 aprendizaje y exploración en el campo interdisciplinario de la Mecatrónica.</p>
+            <div class="DownloadCV">
+                <a href="#">
+                    <h4>Download CV</h4>
+                </a>
+            </div>
             <div class="socials-1">
                 <a href="#" target="_blank" class="social-1" id="twitter">
                     <img src="images/s2.svg" alt="Twitter">
@@ -43,10 +47,15 @@
                     <img src="images/s1.svg" alt="Twitter">
                 </a>
             </div>
+
         </div>
 
         <div>
-            <img src="images/YO.png" alt="Image 2">
+            <div class="video-background">
+                <video autoplay muted loop id="video-background-source">
+                    <source src="images/pcc.mp4" type="video/mp4">
+                </video>
+            </div>
         </div>
     </section>
 
@@ -66,7 +75,7 @@
                 innovadoras. Mi objetivo es aplicar mis conocimientos para resolver problemas del mundo real y
                 contribuir al avance tecnológico en nuestra sociedad.</p>
 
-            <h5>📞+51 932 238 506</h5>
+            <h5>📞+51 925 956 294</h5>
         </div>
     </section>
     <section class="proyecto">
@@ -74,7 +83,7 @@
 
         <!-- Primer proyecto: Brazo Robótico -->
         <div class="proyecto-individual">
-            <div class="titulo">Brazo Robótico</div>
+            <div class="titulo1">Brazo Robótico</div>
             <div class="imagen">
                 <img src="brazo_robotico.jpg" alt="Brazo Robótico">
             </div>
@@ -88,7 +97,7 @@
 
         <!-- Segundo proyecto: Proyecto XYZ -->
         <div class="proyecto-individual">
-            <div class="titulo">Proyecto XYZ</div>
+            <div class="titulo1">Proyecto XYZ</div>
             <div class="imagen">
                 <img src="proyecto_xyz.jpg" alt="Proyecto XYZ">
             </div>
@@ -102,7 +111,7 @@
 
         <!-- Tercer proyecto: Robot Seguidor de Línea -->
         <div class="proyecto-individual">
-            <div class="titulo">Robot Seguidor de Línea</div>
+            <div class="titulo1">Robot Seguidor de Línea</div>
             <div class="imagen">
                 <img src="robot_line_follower.jpg" alt="Robot Seguidor de Línea">
             </div>
@@ -116,152 +125,6 @@
         </div>
 
     </section>
-
-
-    <script>
-        // Primer script JavaScript para el menú de servicios
-        document.addEventListener('DOMContentLoaded', function () {
-            var serviciosLink = document.getElementById('servicios');
-            var opcionesContainer = crearOpcionesContainer();
-            var timeoutId; // Variable para almacenar el ID del temporizador
-
-            serviciosLink.addEventListener('mouseover', mostrarOpciones);
-            opcionesContainer.addEventListener('mouseover', function () {
-                clearTimeout(timeoutId); // Cancelar el temporizador si el mouse está sobre el contenedor
-            });
-
-            serviciosLink.addEventListener('mouseout', function () {
-                timeoutId = setTimeout(cerrarOpciones, 500); // Configurar un temporizador para cerrar el menú después de 500ms
-            });
-            opcionesContainer.addEventListener('mouseout', function () {
-                timeoutId = setTimeout(cerrarOpciones, 500); // Configurar un temporizador para cerrar el menú después de 500ms
-            });
-
-            document.querySelector('.menu-icono').addEventListener('click', function () {
-                document.querySelector('.nav-links').classList.toggle('show');
-            });
-
-            function mostrarOpciones() {
-                var rect = serviciosLink.getBoundingClientRect();
-                opcionesContainer.style.top = rect.bottom + 'px';
-                opcionesContainer.style.left = rect.left + 'px';
-                opcionesContainer.classList.add('visible');
-                document.addEventListener('click', cerrarOpciones);
-            }
-
-            function cerrarOpciones() {
-                opcionesContainer.classList.remove('visible');
-                document.removeEventListener('click', cerrarOpciones);
-            }
-
-            function crearOpcionesContainer() {
-                var container = document.getElementById('opciones-servicios');
-                if (!container) {
-                    container = document.createElement('section');
-                    container.id = 'opciones-servicios';
-                    container.innerHTML =
-                        '<div class="curso">' +
-                        '<a>Electrónicos</a>' +
-                        '</div>' +
-                        '<div class="curso">' +
-                        '<a>Física Aplicada</a>' +
-                        '</div>' +                        
-                        '<div class="curso">' +
-                        '<a>Sensores</a>' +
-                        '</div>';
-                    document.body.appendChild(container);
-                }
-
-                return container;
-            }
-        });
-    </script>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var serviciosCorporativosLink = document.getElementById('servicios-corporativos');
-            var opcionesContainer = crearOpcionesContainer();
-            var timeoutId;
-
-            serviciosCorporativosLink.addEventListener('mouseover', mostrarOpciones);
-            opcionesContainer.addEventListener('mouseover', function () {
-                clearTimeout(timeoutId);
-            });
-
-            serviciosCorporativosLink.addEventListener('mouseout', function () {
-                timeoutId = setTimeout(cerrarOpciones, 500);
-            });
-            opcionesContainer.addEventListener('mouseout', function () {
-                timeoutId = setTimeout(cerrarOpciones, 500);
-            });
-
-            document.querySelector('.menu-icono').addEventListener('click', function () {
-                document.querySelector('.nav-links').classList.toggle('show');
-            });
-
-            function mostrarOpciones() {
-                var rect = serviciosCorporativosLink.getBoundingClientRect();
-                opcionesContainer.style.top = rect.bottom + 'px';
-                opcionesContainer.style.left = rect.left + 'px';
-                opcionesContainer.classList.add('visible');
-                document.addEventListener('click', cerrarOpciones);
-            }
-
-            function cerrarOpciones() {
-                opcionesContainer.classList.remove('visible');
-                document.removeEventListener('click', cerrarOpciones);
-            }
-            function crearOpcionesContainer() {
-                var container = document.getElementById('opciones-servicios-corporativos');
-                if (!container) {
-                    container = document.createElement('section');
-                    container.id = 'opciones-servicios-corporativos';
-                    container.innerHTML =
-                        '<div class="curso">' +
-                        '<a>Matematica Basica</a>' +
-                        '</div>' +
-                        '<div class="curso">' +
-                        '<a>Transformada Z</a>' +
-                        '</div>' +                        
-                        '<div class="curso">' +
-                        '<a>Transformada de Laplace</a>' +
-                        '</div>' +
-                        '<div class="curso">' +
-                        '<a>Transformada de Fourier</a>' +
-                        '</div>' +
-                        '<div class="curso">' +
-                        '<a>Señales y Sistemas</a>' +
-                        '</div>' +
-                        '<div class="curso">' +
-                        '<a>Resistencia de Materiales y Mecanica de Ingenieros</a>' +
-                        '</div>';
-                    document.body.appendChild(container);
-                }
-
-                return container;
-            }
-        });
-    </script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            document.querySelector('.menu-icono').addEventListener('click', function () {
-                document.querySelector('.nav-links').classList.toggle('show');
-            });
-
-            function mostrarOpciones() {
-                var rect = serviciosCorporativosLink.getBoundingClientRect();
-                opcionesContainer.style.top = rect.bottom + 'px';
-                opcionesContainer.style.left = rect.left + 'px';
-                opcionesContainer.classList.add('visible');
-                document.addEventListener('click', cerrarOpciones);
-            }
-
-            function cerrarOpciones() {
-                opcionesContainer.classList.remove('visible');
-                document.removeEventListener('click', cerrarOpciones);
-            }
-        });
-    </script>
 
 </body>
 

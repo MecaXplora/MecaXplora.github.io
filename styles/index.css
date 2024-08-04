@@ -27,6 +27,18 @@ nav {
 .menu-icono {
   display: none;
 }
+.video-background {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+#video-background-source {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
 .lavanderia {
   font-size: 30px;
@@ -208,7 +220,7 @@ nav {
 }
 
 .image-container>div:first-child {
-  padding: 0px 0px 0px 40px;
+  padding: 0px 10px 0px 10px;
   flex: 25%;
   display: flex;
   flex-direction: column;
@@ -222,19 +234,33 @@ nav {
 .image-container>div:last-child {
   flex: 70%;
 }
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
 
-.image-container>div:first-child h4 {
-  font-family: "Arial Narrow", sans-serif; /* Establecer la fuente Arial Narrow */
+.image-container > div:first-child h5 {
+  font-family: "Arial Narrow", sans-serif;
   margin-bottom: 0px;
   font-weight: 200;
-  font-size: 30px;
-  /* Reduce el margen inferior del h4 */
+  font-size: 35px;
+  white-space: nowrap;
 }
+
+
 
 .image-container>div:first-child p {
   line-height: 1.5;
   /* Ajusta el espaciado entre líneas */
   font-size: 14px;
+  text-align: justify;
   /* Tamaño de fuente para el párrafo */
   margin-bottom: 0px;
   /* Reduce el margen inferior del h4 */
@@ -248,13 +274,14 @@ nav {
 
 .nombre {
   color: #00c5cd;
+  animation: fade 4s linear infinite;
   /* Tamaño de fuente deseado para el nombre */
 }
 
 .socials-1 {
   margin-top: 5px;
-  padding: 0px 0px 0px 20px;
   display: flex;
+  justify-content: center; 
   gap: 20px;
 }
 
@@ -310,6 +337,7 @@ nav {
 
 .sobre-mi p {
   line-height: 1.5;
+  text-align: justify;
   /* Ajusta el espaciado entre líneas */
   font-size: 14px;
   /* Tamaño de fuente para el párrafo */
@@ -332,8 +360,9 @@ nav {
 
 .proyecto .titulo {
   text-align: center;
+  color: #00c5cd;
   /* Centrar el texto */
-  font-size: 18px;
+  font-size: 25px;
   font-weight: 54px;
   /* Puedes ajustar este valor según lo grueso que desees el texto */
   width: 100%;
@@ -349,7 +378,8 @@ nav {
   /* Espacio entre proyectos */
 }
 
-.proyecto-individual .titulo {
+.proyecto-individual .titulo1 {
+  text-align: center;
   font-size: 14px;
   /* Tamaño de fuente del título del proyecto */
   margin-bottom: 10px;
@@ -370,6 +400,38 @@ nav {
   /* Reduce el margen inferior del h4 */
   text-align: justify;
   /* Justificar el texto de la descripción */
+}
+.DownloadCV {
+  display: inline-block;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 45px;
+  margin-right: 45px;
+  border: 2px solid #00c4cc;
+  border-radius: 25px;
+  text-align: center;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.DownloadCV a {
+  text-decoration: none;
+  color: #00c4cc;
+  font-weight: bold;
+}
+.DownloadCV h4 {
+  font-family: "Arial Narrow", sans-serif; /* Establecer la fuente Arial Narrow */
+  margin-bottom: 0px;
+  font-weight: 200;
+  font-size: 25px;
+  margin: 0; /* Elimina el margen alrededor del encabezado */
+  padding: 0;
+}
+.DownloadCV:hover {
+  background-color: #00c4cc;
+}
+
+.DownloadCV:hover a {
+  color: #fff;
 }
 
 @media screen and (max-width: 768px) {
@@ -404,6 +466,9 @@ nav {
     padding: 0 0px;
   }
 
+  .DownloadCV h4 {
+    font-size: 20px;
+  }
   .sobre-mi img {
     display: block;
     max-width: 50%;
@@ -445,9 +510,9 @@ nav {
     /* Espacio entre la imagen y el texto */
   }
 
-  .image-container>div:first-child h4 {
+  .image-container>div:first-child h5 {
     margin-bottom: 0px;
-    font-size: 20px;
+    font-size: 25px;
     /* Reduce el margen inferior del h4 */
   }
 
